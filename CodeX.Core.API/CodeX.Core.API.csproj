@@ -17,4 +17,9 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CodeX.Code.BAL\CodeX.Code.BAL.csproj" />
+    <ProjectReference Include="..\CodeX.Core.Entity\CodeX.Core.Entity.csproj" />
+  </ItemGroup>
+
 </Project>

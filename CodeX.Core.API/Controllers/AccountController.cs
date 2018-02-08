@@ -1,4 +1,5 @@
-﻿using CodeX.Core.API.Models;
+﻿using CodeX.Code.BAL;
+using CodeX.Core.API.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -15,10 +16,12 @@ namespace CodeX.Core.API.Controllers
     {
         readonly UserManager<ApplicationUser> userManager;
         readonly SignInManager<ApplicationUser> signInManager;
+        PersonalBAL objPersonalBAL;
         public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            objPersonalBAL = new PersonalBAL();
         }
 
         [HttpPost("register")]
@@ -32,6 +35,16 @@ namespace CodeX.Core.API.Controllers
 
             await userManager.AddToRoleAsync(await userManager.FindByNameAsync(user.UserName), "Free User");
             await signInManager.SignInAsync(user, isPersistent: false);
+
+            objPersonalBAL.PersonalSave(new Entity.Personal
+            {
+                DateOfBirth = model.DateOfBirth,
+                FullName = model.FullName,
+                Gender = model.Gender,
+                MobileNumber = model.MobileNumber
+            });
+
+
             return Ok(CreateToken(user));
         }
 

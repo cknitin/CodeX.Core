@@ -23,6 +23,11 @@ namespace CodeX.Core.API.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
+        public string FullName { get; set; }
+        public string MobileNumber { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public int Gender { get; set; }
+
     }
 
 }
