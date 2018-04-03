@@ -39,9 +39,7 @@ namespace CodeX.Core.API.Controllers
 
             objPersonalBAL.PersonalSave(new Entity.Personal
             {
-                DateOfBirth = model.DateOfBirth,
                 FullName = model.FullName,
-                Gender = model.Gender,
                 MobileNumber = model.MobileNumber
             });
 

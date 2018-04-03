@@ -25,9 +25,10 @@ namespace CodeX.Core.API.Models
 
         public string FullName { get; set; }
         public string MobileNumber { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public int Gender { get; set; }
+     
 
     }
+
+   
 
 }
