@@ -40,5 +40,11 @@ namespace CodeX.Core.API.Controllers
         public void Delete(int id)
         {
         }
+
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public void Test(int id)
+        {
+        }
     }
 }
